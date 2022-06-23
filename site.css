@@ -1,0 +1,167 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    margin: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    background-color: #eee;
+    font-family:'Lato', sans-serif;
+    font-weight: 400;
+}
+
+p, a {
+    text-decoration: none;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+}
+
+header, header nav, header nav div {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header, header nav {
+    width: 100%;
+    font-size: 1.8rem;
+}
+
+header {
+    position: fixed;
+    padding: 4vh 4vw;
+    border-bottom: transparent;
+    box-shadow: 0 2px 5px rgb(0,0,0,0.1);
+    z-index: 2;
+}
+
+header nav div {
+    width: 9%;
+}
+
+#home {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#piano {
+    position: relative;
+    height: 52vh;
+    width: 60vw;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+#piano section {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: stretch;
+}
+
+#piano input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+input[type="checkbox"]:checked + span {
+    background: #7E78D2;
+    color: #ccc;
+}
+
+.white, .white span {
+    border-radius: 7px;
+}
+
+.white, .black {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+    z-index: 1;
+}
+
+.white {
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #bfbfbf;
+    border-radius: 7px;
+    box-shadow: 0 0 1.75px #ababab inset;
+    color: #252525;
+    font-size: 2.25rem;
+}
+
+.white span, .black span {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 4vh;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.black-keys {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    height: 100%;
+}
+
+.black {
+    background-color: #252525;
+    width: 5.25%;
+    height: 61.5%;
+    border-radius: 0 0 7px 7px;
+    box-shadow: 0 0 10px #505050 inset;
+    color: #cccccc;
+    font-size: 1.9rem;
+}
+
+.black, .black span {
+    border-radius: 0 0 7px 7px;
+}
+
+.black:nth-child(1), .black:nth-child(4), .black:nth-child(6), .black:nth-child(9)  {
+    margin-left: 4.25%;
+}
+
+.black:nth-child(2),.black:nth-child(3), .black:nth-child(5), .black:nth-child(7), .black:nth-child(8), .black:nth-child(10) {
+    margin-left: 2.25%;
+}
+
+.black:nth-child(3), .black:nth-child(5), .black:nth-child(8) {
+    margin-right: 4.25%;
+}
+
+#submit-btn {
+    outline: none;
+    border: transparent;
+    padding: 1.1vh 1.25vw;
+    margin-top: 3vh;
+    border-radius: 2px;
+}
