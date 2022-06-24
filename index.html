@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,13 +8,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="site.css" />
-    <script defer type="text/javascript" src="src/site.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tonaljs/tonal/browser/tonal.min.js"></script>
+    <script>
+        let form = document.getElementById("piano");
+        let notes = [];
+        let noteName = "";
+        let chords = [];
+
+        function submitForm() {
+            let inputs = document.getElementsByTagName("input");
+            
+            for (let i in inputs) {
+                if (inputs[i].checked) {
+                    noteName = inputs[i].value;
+                    notes.push(noteName);
+                }
+            }
+            
+            chords = Tonal.Chord.detect(notes);
+            console.log(chords);
+            notes.length = 0;
+        }
+    </script>
 </head>
 <body>
     <main>
         <!--Piano-->
         <section id="home">
-            <form id="piano">
+            <form id="piano" onsubmit="submitForm(); return false">
                 <section>
                     <label class="white-key"><input type="checkbox" value="F" /><span>F</span></label>
                     <label class="white-key"><input type="checkbox" value="G" /><span>G</span></label>
