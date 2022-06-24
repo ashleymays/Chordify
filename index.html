@@ -16,18 +16,34 @@
         let chords = [];
 
         function submitForm() {
+            // clear list of chords in document
+            let chordSection = document.getElementById("chord-sect");
+            while (chordSection.firstChild) {
+                chordSection.removeChild(chordSection.firstChild);
+            }
+
+
             let inputs = document.getElementsByTagName("input");
             
+            // get list of notes from form
             for (let i in inputs) {
                 if (inputs[i].checked) {
                     noteName = inputs[i].value;
                     notes.push(noteName);
                 }
             }
-            
-            chords = Tonal.Chord.detect(notes);
+            chords = Tonal.Chord.detect(notes); // get chords from the list of notes
             console.log(chords);
-            notes.length = 0;
+            notes.length = 0;   // reset notes array so that user can input more
+
+
+            // show chords in document
+            for (let i in chords) {
+                chordElement = document.createElement("h1");
+                chordElement.setAttribute("class", "chord-name");
+                chordElement.innerHTML = chords[i];
+                chordSection.appendChild(chordElement);
+            }
         }
     </script>
 </head>
@@ -70,7 +86,8 @@
 
         <!--Chord Name-->
         <section id="chord-sect">
-            <h1 id="chord-name">C Maj7</h1>
+            <!-- <h2>Your chord is probably a</h2> -->
+            <!-- <h1 class="chord-name"></h1> -->
         </section>
     </main>
 </body>

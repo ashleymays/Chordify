@@ -38,7 +38,7 @@ p, a {
 }
 
 #home {
-    height: 100vh;
+    height: 90vh;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -178,14 +178,15 @@ p, a {
     opacity: 0.6;
 }
 
-#chord-sect {
-    display: none;
+.chord-sect {
+    display: flex;
+    flex-flow: column;
     align-items: center;
     justify-content: center;
     border-radius: 1rem;
     width: 70rem;
     height: 25rem;
-    border: 0.5rem solid #ccc;
+    border: 2px solid red;
     background: transparent;
     text-align: center;
     color: #505050;
