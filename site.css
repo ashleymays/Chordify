@@ -26,8 +26,9 @@ main {
 }
 
 h1 {
-    font-size: 5rem;
-
+    font-size: 6rem;
+    padding: 0;
+    margin: 5rem 0;
 }
 
 p, a {
@@ -38,7 +39,7 @@ p, a {
 }
 
 #home {
-    height: 90vh;
+    height: max-content;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -157,37 +158,49 @@ p, a {
     margin-right: 4.25%;
 }
 
-#submit-btn {
-    background: #7f79d2;
-    outline: none;
-    border: transparent;
+.form__button-container {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 47.5rem;
+}
+
+#submit-btn, #clear-btn {
     padding: 1.5rem 7rem;
     margin-top: 4rem;
-    border-radius: 0.1rem;
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 0.45rem;
     font-size: 1.7rem;
-    border-radius: 0.5rem;
-    color: #f0f0f0;
+    border-radius: 0.75rem;
     font-family: inherit;
-
+    outline: none;
 }
 
-#submit-btn:hover {
-    opacity: 0.6;
+#submit-btn {
+    background: #7f79d2;
+    border: transparent;
+    color: #f0f0f0;
+}
+
+#clear-btn {
+    background: transparent;
+    border: 0.2rem solid #7f79d2;
+    color: #7f79d2;
 }
 
 .chord-sect {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
+    content: "";
     border-radius: 1rem;
     width: 70rem;
-    height: 25rem;
-    border: 2px solid red;
+    height: 20rem;
     background: transparent;
-    text-align: center;
     color: #505050;
+    position: relative;
+    text-align: center;
+}
+
+#chords-list {
+    display: block;
 }

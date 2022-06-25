@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chord Identifier</title>
+    <title>Chord Finder</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -14,17 +14,20 @@
         let notes = [];
         let noteName = "";
         let chords = [];
+        let inputs = document.getElementsByTagName("input");
+        let chordsList;
+
+        function clearChordsList() {
+            // clear list of chords in document
+            chordsList = document.getElementById("chords-list");
+            while (chordsList.firstChild) {
+                chordsList.removeChild(chordsList.firstChild);
+            }
+        }
 
         function submitForm() {
-            // clear list of chords in document
-            let chordSection = document.getElementById("chord-sect");
-            while (chordSection.firstChild) {
-                chordSection.removeChild(chordSection.firstChild);
-            }
+            clearChordsList();
 
-
-            let inputs = document.getElementsByTagName("input");
-            
             // get list of notes from form
             for (let i in inputs) {
                 if (inputs[i].checked) {
@@ -32,23 +35,39 @@
                     notes.push(noteName);
                 }
             }
+            
             chords = Tonal.Chord.detect(notes); // get chords from the list of notes
             console.log(chords);
             notes.length = 0;   // reset notes array so that user can input more
 
-
             // show chords in document
-            for (let i in chords) {
-                chordElement = document.createElement("h1");
-                chordElement.setAttribute("class", "chord-name");
-                chordElement.innerHTML = chords[i];
-                chordSection.appendChild(chordElement);
+            chordElement = document.createElement("h1");
+            chordElement.setAttribute("class", "chord-name");
+
+            // replace 'M' with a space for better readability
+            let index = chords[0].indexOf('M');
+            if (index != -1) {
+                chords[0] = chords[0].slice(0, index) + chords[0].slice(index + 1);
+            }
+            chordElement.innerHTML = chords[0];
+            chordsList.appendChild(chordElement); // add element to DOM
+        }
+    
+        function clearForm() {
+            clearChordsList();
+            for (let i in inputs) {
+                inputs[i].checked = false;
             }
         }
     </script>
 </head>
 <body>
     <main>
+        <!--Chord Name-->
+        <section class="chord-sect">
+            <article id="chords-list"></article>
+        </section>
+
         <!--Piano-->
         <section id="home">
             <form id="piano" onsubmit="submitForm(); return false">
@@ -80,14 +99,11 @@
                         <label class="black-key"><input type="checkbox" value="D#" /><span>D# <br/>E&#9837</span></label>
                     </div>
                 </section>
-                <input type="submit" id="submit-btn" value="Submit" />
+                <div class="form__button-container">
+                    <input type="submit" id="submit-btn" title="Find Chord" value="Submit" />
+                    <button type="button" id="clear-btn" title="Clear Notes" onclick="clearForm()">Clear</button>
+                </div>
             </form>
-        </section>
-
-        <!--Chord Name-->
-        <section id="chord-sect">
-            <!-- <h2>Your chord is probably a</h2> -->
-            <!-- <h1 class="chord-name"></h1> -->
         </section>
     </main>
 </body>
