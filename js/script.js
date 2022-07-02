@@ -7,7 +7,6 @@ let chordsList;
 
 // clear list of chords in document
 function clearChordsList() {
-    chordsList = document.getElementById("chords-list");
     while (chordsList.firstChild) {
         chordsList.removeChild(chordsList.firstChild);
     }
@@ -31,18 +30,31 @@ function getChosenNotes() {
     }
 }
 
+// show chords in document
+function outputChords() {
+    if (chords.length === 0) {
+        chordElement = document.createElement("h1");
+        chordElement.setAttribute("class", "chord-name");
+        chordElement.innerHTML = "No chords found";
+        chordsList.appendChild(chordElement); // add element to DOM
+        return;
+    }
+    for (let i in chords) {
+        chordElement = document.createElement("h1");
+        chordElement.setAttribute("class", "chord-name");
+        removeMajor();
+        chordElement.innerHTML = chords[i];
+        chordsList.appendChild(chordElement); // add element to DOM
+    }
+}
+
 function submitForm() {
+    chordsList = document.getElementById("chords-list");
     clearChordsList();
     getChosenNotes();
     chords = Tonal.Chord.detect(notes); // get chords from the list of notes
     notes.length = 0;   // reset notes array so that user can input more
-
-    // show chords in document
-    chordElement = document.createElement("h1");
-    chordElement.setAttribute("class", "chord-name");
-    removeMajor();
-    chordElement.innerHTML = chords[0];
-    chordsList.appendChild(chordElement); // add element to DOM
+    outputChords();
 }
 
 function clearForm() {
