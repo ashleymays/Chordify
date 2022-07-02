@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chord Finder</title>
+    <title>Chordify</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="site.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Gantari:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tonaljs/tonal/browser/tonal.min.js"></script>
-    <script src="site.js"></script>
+    <script src="js/script.js"></script>
 </head>
 <body>
     <main>
@@ -50,11 +50,28 @@
                     </div>
                 </section>
                 <div class="form__button-container">
-                    <input type="submit" id="submit-btn" title="Find Chord" value="Submit" />
+                    <input type="submit" id="submit-btn" title="Find Chord" value="Search" />
                     <button type="button" id="clear-btn" title="Clear Notes" onclick="clearForm()">Clear</button>
                 </div>
             </form>
         </section>
+
+        <!--Description-->
+        <section id="details">
+            <div>
+                <h2>What is Chordify?</h2>
+                <p>
+                    Chordify is a tool that lets musicians identify chords from a list of notes.
+                </p>
+            </div>
+            <div>
+                <h2>How to use Chordify?</h2>
+                <p>Enter in your notes on the virtual piano and press the Search button. It will then show a list of chords that contain your notes. The first chord in the list is the most well-known or “common” chord that has those notes.</p>
+            </div>
+        </section>
     </main>
+    <footer>
+
+    </footer>
 </body>
 </html>

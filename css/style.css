@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+:root {
+    --white-key-color: #fff;
+    --black-key-color: #252525;
+    --accent-color: #ff6b6b;
+    --primary-text-color: ;
+}
+
 html, body {
     width: 100%;
     margin: 0;
@@ -12,16 +19,15 @@ html {
 }
 
 body {
-    background-color: #eee;
-    font-family:'Lato', sans-serif;
+    background-color: var(--white-key-color);
+    font-family:'Gantari', sans-serif;
     font-weight: 400;
 }
 
 main {
-    margin: 4vh 10vw;
+    margin: 4vh 22.75vw;
     display: flex;
     flex-flow: column;
-    align-items: center;
     justify-content: center;
 }
 
@@ -31,11 +37,21 @@ h1 {
     margin: 5rem 0;
 }
 
+h2 {
+    font-size: 3.5rem;
+    line-height: 1.5em;
+}
+
 p, a {
     text-decoration: none;
     padding: 0;
     background: transparent;
     color: inherit;
+}
+
+p {
+    font-size: 2rem;
+    line-height: 1.5em;
 }
 
 #home {
@@ -49,7 +65,7 @@ p, a {
 #piano {
     position: relative;
     height: 40rem;
-    width: 83rem;
+    width: 100%;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -74,24 +90,18 @@ p, a {
 }
 
 .white-key input[type="checkbox"]:checked + span, .black-key input[type="checkbox"]:checked + span {
-    background: #7f79d2;
-    color: #ccc;
+    background: var(--accent-color);
+    color: var(--white-key-color);
 }
 
 .white-key input[type="checkbox"]:checked + span {
-    border: 0.075rem solid #ccc;
-}
-
-.black-key input[type="checkbox"]:checked + span {
-    outline: 0.1rem solid #ccc;
+    border-bottom: 0.025rem solid var(--white-key-color);
+    border-left: 0.025rem solid var(--white-key-color);
+    border-right: 0.025rem solid var(--white-key-color);
 }
 
 .white-key, .white-key span {
     border-radius: 0.75rem;
-}
-
-.white-key:hover span, .black-key:hover span {
-    background-color: rgb(127, 121, 210, 0.165);
 }
 
 .white-key, .black-key {
@@ -105,13 +115,13 @@ p, a {
 }
 
 .white-key {
-    background-color: #f0f0f0;
+    background-color: var(--white-key-color);
     width: 100%;
     height: 100%;
-    border-radius: 0.75rem;
-    box-shadow: 0 0 0.2rem #505050 inset;
-    color: #252525;
-    font-size: 2.25rem;
+    border-radius: 0.65rem;
+    box-shadow: 0 0 0.12rem var(--black-key-color) inset;
+    color: var(--black-key-color);
+    font-size: 2rem;
 }
 
 .white-key span, .black-key span {
@@ -135,15 +145,16 @@ p, a {
 }
 
 .black-key {
-    background-color: #252525;
+    background-color: var(--black-key-color);
     width: 5.25%;
     height: 61.5%;
-    color: #cccccc;
-    font-size: 1.9rem;
+    color: var(--white-key-color);
+    font-size: 1.7rem;
+    box-shadow: rgb(0,0,0,0.2) 0 0.2rem 0.4rem;
 }
 
 .black-key, .black-key span {
-    border-radius: 0 0 0.75rem 0.75rem;
+    border-radius: 0 0 0.65rem 0.65rem;
 }
 
 .black-key:nth-child(1), .black-key:nth-child(4), .black-key:nth-child(6), .black-key:nth-child(9)  {
@@ -163,44 +174,53 @@ p, a {
     flex-flow: row;
     align-items: center;
     justify-content: space-between;
-    width: 47.5rem;
+    width: 44rem;
 }
 
 #submit-btn, #clear-btn {
-    padding: 1.5rem 7rem;
+    padding: 1.35rem 6rem;
     margin-top: 4rem;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 0.45rem;
-    font-size: 1.7rem;
+    letter-spacing: 0.4rem;
+    font-size: 1.65rem;
     border-radius: 0.75rem;
     font-family: inherit;
     outline: none;
+    border: 0.2rem solid var(--accent-color);
 }
 
 #submit-btn {
-    background: #7f79d2;
-    border: transparent;
-    color: #f0f0f0;
+    background: var(--accent-color);
+    color: var(--white-key-color);
 }
 
 #clear-btn {
     background: transparent;
-    border: 0.2rem solid #7f79d2;
-    color: #7f79d2;
+    color: var(--accent-color);
 }
 
 .chord-sect {
     content: "";
     border-radius: 1rem;
-    width: 70rem;
+    width: 100%;;
     height: 20rem;
     background: transparent;
-    color: #505050;
-    position: relative;
-    text-align: center;
+    color: var(--black-key-color);
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 #chords-list {
-    display: block;
+    text-align: center;
+}
+
+#details {
+    padding: 15rem 0;
+}
+
+#details div {
+    padding: 1rem 0;
 }
