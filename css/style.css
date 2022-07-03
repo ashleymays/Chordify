@@ -16,6 +16,7 @@ html, body {
 
 html {
     font-size: 10px;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -34,10 +35,9 @@ main {
 h1 {
     font-size: 4.5rem;
     font-weight: 600;
-    padding: 0;
+    padding: 1rem 0;
     margin: 0;
-    line-height: 1.2em;
-    flex-basis: 2;
+    line-height: 1.4em;
     text-align: center;
 }
 
@@ -58,8 +58,24 @@ p {
     line-height: 1.5em;
 }
 
+a {
+    font-size: 2.25rem;
+}
+
+header {
+    width: 100%;
+    padding: 3rem 13vw;
+}
+
+header nav {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
 #home {
-    height: max-content;
+    height: 75vh;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -208,8 +224,9 @@ p {
     content: "";
     border-radius: 1rem;
     width: 100%;
-    height: 20rem;
-    margin: 3rem 0;
+    height: max-content;
+    padding: 5rem 0;
+    margin: 0;
     background: transparent;
     color: var(--black-key-color);
     display: flex;
@@ -219,7 +236,7 @@ p {
 }
 
 #details {
-    padding: 15rem 0 10rem;
+    padding: 7rem 0;
 }
 
 #details div {
@@ -229,6 +246,6 @@ p {
 footer {
     display: flex;
     justify-content: space-between;
-    padding: 5rem 24vw;
+    padding: 6rem 13vw;
     font-size: 1.5rem;
 }

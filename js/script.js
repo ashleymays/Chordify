@@ -30,6 +30,10 @@ function getChosenNotes() {
     }
 }
 
+function scrollToChords() {
+    chordsList.scrollIntoView({behavior: "smooth", block: "end"});
+}
+
 // show chords in document
 function outputChords() {
     if (chords.length === 0) {
@@ -55,6 +59,7 @@ function submitForm() {
     chords = Tonal.Chord.detect(notes); // get chords from the list of notes
     notes.length = 0;   // reset notes array so that user can input more
     outputChords();
+    scrollToChords();
 }
 
 function clearForm() {
@@ -62,4 +67,8 @@ function clearForm() {
     for (let i in inputs) {
         inputs[i].checked = false;
     }
+    chordElement = document.createElement("h1");
+    chordElement.setAttribute("class", "chord-name");
+    chordElement.innerHTML = "Chords will appear here";
+    chordsList.appendChild(chordElement); // add element to DOM
 }
