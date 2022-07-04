@@ -64,9 +64,6 @@ function submitForm() {
 
 function clearForm() {
     clearChordsList();
-    for (let i in inputs) {
-        inputs[i].checked = false;
-    }
     chordElement = document.createElement("h1");
     chordElement.setAttribute("class", "chord-name");
     chordElement.innerHTML = "Chords will appear here";
