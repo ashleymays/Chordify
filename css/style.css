@@ -26,9 +26,10 @@ body {
 }
 
 main {
-    margin: 4vh 24vw;
+    margin: 4rem 24rem;
     display: flex;
     flex-flow: column;
+    align-items: center;
     justify-content: center;
 }
 
@@ -75,7 +76,7 @@ header nav {
 }
 
 #home {
-    height: 75vh;
+    height: max-content;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -85,7 +86,6 @@ header nav {
 #piano {
     position: relative;
     height: 37rem;
-    width: 100%;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -136,7 +136,7 @@ header nav {
 
 .white-key {
     background-color: var(--white-key-color);
-    width: 100%;
+    width: 6.5rem;
     height: 100%;
     border-radius: 0.65rem;
     box-shadow: 0 0 0.12rem var(--black-key-color) inset;
@@ -225,7 +225,7 @@ header nav {
     border-radius: 1rem;
     width: 100%;
     height: max-content;
-    padding: 5rem 0;
+    padding: 4rem 0;
     margin: 0;
     background: transparent;
     color: var(--black-key-color);
@@ -248,4 +248,47 @@ footer {
     justify-content: space-between;
     padding: 6rem 13vw;
     font-size: 1.5rem;
+}
+
+@media screen and (max-width: 1023px) {
+    main {
+        margin: 2rem 2rem;
+    }
+    header {
+        display: none;
+    }
+    h1 {
+        font-size: 3.25rem;
+    }
+    #home {
+        height: max-content;
+        width: max-content;
+        transform: rotate(90deg);
+        margin: 25vh 0;
+    }
+    #piano {
+        height: 45vw;
+        margin-top: 5rem;
+    }
+    #chords-list {
+        margin-bottom: 5rem;
+    }
+    .white-key {
+        width: 5rem;
+    }
+    #details {
+        width: 90vw;
+    }
+    #submit-btn, #clear-btn {
+        padding: 1rem 4rem;
+        margin-top: 2rem;
+        font-size: 1.4rem;
+    }
+    .form__button-container {
+        width: 35rem;
+    }
+    footer {
+        padding: 6rem 2rem;
+        font-size: 1.5rem;
+    }
 }
